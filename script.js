@@ -2,18 +2,41 @@ function getComputerChoice() {
     return ["rock", "paper", "scissors"][Math.floor(Math.random() * 3)]; // Returns "rock", "paper", or "scissors"
 }
 
-function getHumanChoice() {
-    let choice = prompt("Choose: rock, paper, or scissors").toLowerCase();
+let humanSelection = ""; // Start with an empty selection
+let computerSelection = getComputerChoice(); // Initial computer choice
 
-    if (choice === "rock" || choice === "paper" || choice === "scissors") {
-        return choice;
-    }
+const playerChoice = document.querySelector(".player-choice");
+const computerChoice = document.querySelector(".computer-choice");
+
+const rockButton = document.querySelector("#rockbtn");
+const paperButton = document.querySelector("#paperbtn");
+const scissorsButton = document.querySelector("#scissorsbtn");
+
+rockButton.addEventListener("click", () => {
+    humanSelection = "rock";
+    playGame(humanSelection);
+});
+
+paperButton.addEventListener("click", () => {
+    humanSelection = "paper";
+    playGame(humanSelection);
+});
+
+scissorsButton.addEventListener("click", () => {
+    humanSelection = "scissors";
+    playGame(humanSelection);
+});
+
+function playGame(humanSelection) {
+    computerSelection = getComputerChoice(); // Update computer choice
+    playRound(humanSelection, computerSelection);
+
+    // Update UI
+    playerChoice.textContent = `Player: ${humanSelection.toUpperCase()}`;
+    computerChoice.textContent = `CPU: ${computerSelection.toUpperCase()}`;
 }
 
 function playRound(humanChoice, computerChoice) {
-
-    console.log(`You chose ${humanChoice}, computer chose ${computerChoice}.`);
-
     if (humanChoice === computerChoice) {
         console.log("It's a draw!");
     } else if (
@@ -28,8 +51,3 @@ function playRound(humanChoice, computerChoice) {
 }
 
 console.log("Time to play!");
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);

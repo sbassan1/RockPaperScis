@@ -1,0 +1,23 @@
+
+.player-options {
+    padding: 10%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.game-choices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+button {
+    height: 50px;
+    width: 70px;
+}
+
+body {
+    background-color: honeydew;
+}
