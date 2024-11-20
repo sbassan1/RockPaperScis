@@ -1,9 +1,9 @@
 function getComputerChoice() {
-    return ["rock", "paper", "scissors"][Math.floor(Math.random() * 3)]; // Returns "rock", "paper", or "scissors"
+    return ["rock", "paper", "scissors"][Math.floor(Math.random() * 3)];
 }
 
-let humanSelection = ""; // Start with an empty selection
-let computerSelection = getComputerChoice(); // Initial computer choice
+let humanSelection = ""; 
+let computerSelection = getComputerChoice();
 
 const playerChoice = document.querySelector(".player-choice");
 const computerChoice = document.querySelector(".computer-choice");
@@ -28,10 +28,9 @@ scissorsButton.addEventListener("click", () => {
 });
 
 function playGame(humanSelection) {
-    computerSelection = getComputerChoice(); // Update computer choice
+    computerSelection = getComputerChoice(); 
     playRound(humanSelection, computerSelection);
 
-    // Update UI
     playerChoice.textContent = `Player: ${humanSelection.toUpperCase()}`;
     computerChoice.textContent = `CPU: ${computerSelection.toUpperCase()}`;
 }
